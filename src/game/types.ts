@@ -69,12 +69,19 @@ export type Flags = {
   punished: boolean;
   chapter: boolean;
   adler: boolean;
+  /** The four have decided what to do with Adler's card. */
   council: boolean;
+  /** The hall is locked. Chapter one can end. */
   evening: boolean;
+  /** The player has read the chapter card. */
   epilogueSeen: boolean;
+  /** Friday morning. In-game rest, never an offline skip. */
   dawn: boolean;
+  /** The posture from the courtyard has been followed through. */
   branch: boolean;
+  /** Hana has named the door. Chapter two can end. */
   second: boolean;
+  /** The player has read the second chapter card. */
   arcSeen: boolean;
 };
 
@@ -112,6 +119,7 @@ export type TalkNode = {
   next?: string;
   choices?: TalkChoice[];
   effect?: string;
+  /** What happens when the player continues off a terminal node. */
   close?: "talk" | "handover" | "epilogue" | "arc";
 };
 
