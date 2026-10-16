@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #14110e;
+  --color-surface: #221c17;
+  --color-surface-2: #2c251f;
+  --color-fg: #f3eadf;
+  --color-muted: #a89888;
+  --color-primary: #c4452d;
+  --color-line: #3c332b;
+  --color-pine: #2f5d45;
+  --color-brass: #c6a15b;
+  --color-skin-0: #e8c4a4;
+  --color-skin-1: #c48a5a;
+  --color-skin-2: #8a5336;
+  --color-skin-3: #4a3128;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --radius: 0.9rem;
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+.game-root {
+  height: 100dvh;
+  user-select: none;
+}
+
+.nameplate {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-fg);
+  background: color-mix(in oklab, var(--color-bg) 72%, transparent);
+  border: 1px solid var(--color-line);
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.panel {
+  border: 1px solid var(--color-line);
+  background: color-mix(in oklab, var(--color-surface) 94%, transparent);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px color-mix(in oklab, var(--color-bg) 70%, transparent);
+}
+
+.vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 45%,
+    color-mix(in oklab, var(--color-bg) 50%, transparent) 100%
+  );
+}
